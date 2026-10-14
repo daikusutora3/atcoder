@@ -1,0 +1,42 @@
+# Python environments and local runtimes
+/.cp313/
+/.pypy/
+/.pyenv/
+.venv/
+venv/
+env/
+
+# Python caches and build artifacts
+__pycache__/
+/.pycache/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+/.agents/
+/.codex/
+/.aws/
+/skills-lock.json
+/.vscode/settings.json
+.idea/
+
+# OS and editor temporary files
+.DS_Store
+._*
+*.swp
+*.swo
+*~
+
+# Scratch files in the repository root
+/hoge.txt
+/test.py

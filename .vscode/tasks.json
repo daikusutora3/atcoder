@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "AtCoder: rantest current file (100 cases)",
+            "type": "shell",
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "${workspaceFolder}/scripts/rantest.py",
+                "${file}",
+                "--auto",
+                "--cases",
+                "100",
+                "--seed",
+                "0",
+                "--timeout",
+                "2",
+                "--require-contest-quiet"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        },
+        {
+            "label": "AtCoder: rantest current file (1000 cases)",
+            "type": "shell",
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "${workspaceFolder}/scripts/rantest.py",
+                "${file}",
+                "--auto",
+                "--cases",
+                "1000",
+                "--seed",
+                "0",
+                "--timeout",
+                "2",
+                "--require-contest-quiet"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        }
+    ]
+}
