@@ -35,7 +35,7 @@
 `ModComb(max_n, mod)`
 
 - 素数 `mod`、`max_n < mod` が必要
-- 前計算は時間・メモリともに `O(max_n)`
+- 前計算は時間 `O(max_n + log mod)`、メモリ `O(max_n)`
 - `mc.comb(n, k)`: `nCk mod mod` を `O(1)` で返す
 - `mc.perm(n, k)`: `nPk mod mod` を `O(1)` で返す
 

@@ -1,8 +1,9 @@
 def comb_small_k(n, k, mod):
     """素数 mod で、min(k, n-k) 回の積から nCk を求める。
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/mod_comb.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/mod_comb.md
+    計算量: 時間 O(min(k, n-k) + log mod)、追加空間 O(1)。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
     if mod <= 1:
         raise ValueError("mod must be greater than 1")
@@ -25,8 +26,9 @@ def comb_small_k(n, k, mod):
 def pascal_row(n, mod):
     """Pascal の漸化式で [nC0, nC1, ..., nCn] mod mod を返す。
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/mod_comb.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/mod_comb.md
+    計算量: 時間 O(n^2)、空間 O(n)。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
     if n < 0:
         raise ValueError("n must be non-negative")
@@ -46,11 +48,13 @@ def pascal_row(n, mod):
 class ModComb:
     """素数 mod における階乗・順列・二項係数を前計算する。
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/mod_comb.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/mod_comb.md
+    計算量: 構築時間 O(max_n + log mod)、空間 O(max_n)。comb/perm は時間 O(1)。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
 
     def __init__(self, max_n, mod):
+        """計算量: 時間 O(max_n + log mod)、空間 O(max_n)。"""
         if max_n < 0:
             raise ValueError("max_n must be non-negative")
         if mod <= 1:
@@ -75,6 +79,8 @@ class ModComb:
 
     def comb(self, n, k):
         """nCk mod mod を返す。k が範囲外なら 0。
+
+        計算量: 時間・追加空間 O(1)。
         """
         if n < 0:
             return 0
@@ -88,6 +94,8 @@ class ModComb:
 
     def perm(self, n, k):
         """nPk mod mod を返す。k が範囲外なら 0。
+
+        計算量: 時間・追加空間 O(1)。
         """
         if n < 0:
             return 0

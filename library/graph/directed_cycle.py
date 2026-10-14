@@ -1,6 +1,8 @@
 def has_directed_cycle(graph, starts=None):
-    """Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.md"""
+    """計算量: 時間 O(V + E + S)、追加空間 O(V)。V は頂点数、E は辺数、S は starts の要素数（省略時 V）。
+
+    Source: https://github.com/daikusutora3/atcoder
+    """
     n = len(graph)
 
     # 0: 未訪問
@@ -39,8 +41,10 @@ def has_directed_cycle(graph, starts=None):
 
 
 def find_directed_cycle(graph, starts=None):
-    """Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.md"""
+    """計算量: 時間 O(V + E + S)、追加空間 O(V)。V は頂点数、E は辺数、S は starts の要素数（省略時 V）。
+
+    Source: https://github.com/daikusutora3/atcoder
+    """
     n = len(graph)
 
     # 0: 未訪問

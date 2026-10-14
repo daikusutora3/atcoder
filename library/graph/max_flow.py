@@ -4,13 +4,16 @@ from collections import namedtuple
 class MFGraph:
     """非再帰 Dinic。頂点は 0-indexed、容量は非負整数。
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/max_flow.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/max_flow.md
+    計算量: V は頂点数、E は追加した辺数。構築 O(V)、add_edge はならし O(1)、flow は一般に O(V^2 E)。
+    edge_flow/get_edge は O(1)、edges は O(E)、min_cut は O(V + E)。空間 O(V + E)。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
 
     Edge = namedtuple("Edge", "src dst cap flow")
 
     def __init__(self, n):
+        """計算量: 時間・空間 O(n)。"""
         assert n >= 0
         self.n = n
         self.g = [[] for _ in range(n)]
@@ -18,6 +21,7 @@ class MFGraph:
         self.cap = []
 
     def add_edge(self, src, dst, cap):
+        """計算量: ならし時間・追加空間 O(1)。"""
         assert 0 <= src < self.n and 0 <= dst < self.n
         assert cap >= 0
         e = len(self.to)
@@ -28,19 +32,23 @@ class MFGraph:
         return e >> 1
 
     def edge_flow(self, i):
+        """計算量: 時間・追加空間 O(1)。"""
         assert 0 <= i < len(self.to) // 2
         return self.cap[2 * i + 1]
 
     def get_edge(self, i):
+        """計算量: 時間・追加空間 O(1)。"""
         assert 0 <= i < len(self.to) // 2
         e = 2 * i
         return self.Edge(self.to[e + 1], self.to[e],
                          self.cap[e] + self.cap[e + 1], self.cap[e + 1])
 
     def edges(self):
+        """計算量: 時間・出力空間 O(E)。E は追加した辺数。"""
         return [self.get_edge(i) for i in range(len(self.to) // 2)]
 
     def flow(self, s, t, flow_limit=None):
+        """計算量: 一般に時間 O(V^2 E)、追加空間 O(V)。V は頂点数、E は辺数。"""
         assert 0 <= s < self.n and 0 <= t < self.n and s != t
         n, g, to, cap = self.n, self.g, self.to, self.cap
         if flow_limit is None:
@@ -99,6 +107,7 @@ class MFGraph:
         return total
 
     def min_cut(self, s):
+        """計算量: 時間 O(V + E)、追加空間 O(V)。V は頂点数、E は辺数。"""
         assert 0 <= s < self.n
         seen = [False] * self.n
         seen[s] = True

@@ -1,11 +1,13 @@
 class CumulativeSum2D:
     """2次元累積和。sum(x1, y1, x2, y2) で半開区間の和を返す。
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/misc/prefix_sum_2d.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/misc/prefix_sum_2d.md
+    計算量: 構築時間・空間 O((H + 1)(W + 1))、sum は時間・追加空間 O(1)。H は行数、W は列数。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
 
     def __init__(self, a):
+        """計算量: 時間・空間 O((H + 1)(W + 1))。H は行数、W は列数。"""
         self.h = h = len(a)
         self.w = w = len(a[0]) if h else 0
         if any(len(row) != w for row in a):
@@ -20,6 +22,8 @@ class CumulativeSum2D:
 
     def sum(self, x1, y1, x2, y2):
         """[y1, y2) 行 × [x1, x2) 列の和。右下の境界は含まない。
+
+        計算量: 時間・追加空間 O(1)。
         """
         if not (0 <= y1 <= y2 <= self.h and 0 <= x1 <= x2 <= self.w):
             raise ValueError("rectangle must satisfy 0 <= start <= end <= size")

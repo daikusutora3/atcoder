@@ -6,13 +6,15 @@ class SlopeTrick:
     以下の記事を下に実装しています。
     https://maspypy.com/slope-trick-1-%E8%A7%A3%E8%AA%AC%E7%B7%A8
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/slope_trick.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/slope_trick.py
+    計算量: N = len(L) + len(R)。構築時間・空間 O(N)、折れ点追加 O(log(N + 2))。
+    get_min/add_all/shift は O(1)。clear_left/right は最悪 O(N)、get は O(N log(N + 2))。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
 
     def __init__(self, min_f, L, R, INF=float("inf")):
         """
-        計算量: O(N)
+        計算量: 時間・空間 O(N)。N = len(L) + len(R)。
 
         min_f: 区分線形凸関数における最小値
         L: 降順に取り出すためのheapque、全ての値が-1倍されている
@@ -30,48 +32,54 @@ class SlopeTrick:
         heapify(self.R)
 
     def _top_R(self):
+        """計算量: 時間・追加空間 O(1)。"""
         if len(self.R) == 0:
             return self.INF
         return self.R[0] + self.add_R
 
     def _pop_R(self):
+        """計算量: 時間 O(log(N + 2))、追加空間 O(1)。N = len(L) + len(R)。"""
         if len(self.R) == 0:
             return self.INF
         return heappop(self.R) + self.add_R
 
     def _push_R(self, x):
+        """計算量: 時間 O(log(N + 2))、追加空間 O(1)。N = len(L) + len(R)。"""
         return heappush(self.R, x - self.add_R)
 
     def _top_L(self):
+        """計算量: 時間・追加空間 O(1)。"""
         if len(self.L) == 0:
             return -self.INF
         return -self.L[0] + self.add_L
 
     def _pop_L(self):
+        """計算量: 時間 O(log(N + 2))、追加空間 O(1)。N = len(L) + len(R)。"""
         if len(self.L) == 0:
             return -self.INF
         return -heappop(self.L) + self.add_L
 
     def _push_L(self, x):
+        """計算量: 時間 O(log(N + 2))、追加空間 O(1)。N = len(L) + len(R)。"""
         return heappush(self.L, -(x - self.add_L))
 
     def get_min(self):
         """
-        計算量: O(1)
+        計算量: 時間・追加空間 O(1)。
         区分線形凸関数における最小値
         """
         return self.min_f
 
     def add_all(self, a):
         """
-        計算量: O(1)
+        計算量: 時間・追加空間 O(1)。
         区分線形凸関数全体にaを加算する
         """
         self.min_f += a
 
     def add_x_minus_a(self, a):
         """
-        計算量: O(logN)
+        計算量: 時間 O(log(N + 2))、追加空間 O(1)。N = len(L) + len(R)。
         区分線形凸関数に(x-a)_{+}を加算する
         """
         self.min_f += max(0, self._top_L() - a)
@@ -80,7 +88,7 @@ class SlopeTrick:
 
     def add_a_minus_x(self, a):
         """
-        計算量: O(logN)
+        計算量: 時間 O(log(N + 2))、追加空間 O(1)。N = len(L) + len(R)。
         区分線形凸関数に(a-x)_{+}を加算する
         """
         self.min_f += max(0, a - self._top_R())
@@ -89,7 +97,7 @@ class SlopeTrick:
 
     def add_abs(self, a):
         """
-        計算量: O(logN)
+        計算量: 時間 O(log(N + 2))、追加空間 O(1)。N = len(L) + len(R)。
         区分線形凸関数に|x-a|を加算する
         """
         self.add_a_minus_x(a)
@@ -97,7 +105,7 @@ class SlopeTrick:
 
     def clear_right(self):
         """
-        計算量: O(1)
+        計算量: 最悪時間 O(len(R))（リスト解放を含む）、追加空間 O(1)。
         区分線形凸関数に対して累積minを取る
         """
         self.R = []
@@ -105,7 +113,7 @@ class SlopeTrick:
 
     def clear_left(self):
         """
-        計算量: O(1)
+        計算量: 最悪時間 O(len(L))（リスト解放を含む）、追加空間 O(1)。
         区分線形凸関数に対して右側累積minを取る
         """
         self.L = []
@@ -113,7 +121,7 @@ class SlopeTrick:
 
     def shift(self, add_L, add_R):
         """
-        計算量: O(1)
+        計算量: 時間・追加空間 O(1)。
         sliding window minimum をとる操作
         """
         if not (add_L <= add_R):
@@ -123,7 +131,7 @@ class SlopeTrick:
 
     def get(self, x):
         """
-        計算量: O(len(L) + len(R))
+        計算量: 時間 O(N log(N + 2))、追加空間 O(N)。N = len(L) + len(R)。
         区分線形凸関数f(x)の値を求める
         """
         res = self.min_f

@@ -1,11 +1,14 @@
 class BipartiteMatching:
     """辺を追加して solve() で最大マッチング数、pairs() で対応を得る。
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/bipartite_matching.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/bipartite_matching.md
+    計算量: V = n + m、E は辺数。構築 O(n)、add_edge はならし O(1)。
+    solve は O((V + E) sqrt(V + 1))、計算済みなら O(1)。pairs は solve の時間 + O(n)。空間 O(V + E)。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
 
     def __init__(self, n, m):
+        """計算量: 時間・空間 O(n)。"""
         assert n >= 0 and m >= 0
         self._adj = [[] for _ in range(n)]
         self._m = m
@@ -13,17 +16,20 @@ class BipartiteMatching:
         self._size = 0
 
     def add_edge(self, u, v):
+        """計算量: ならし時間・追加空間 O(1)。"""
         assert 0 <= u < len(self._adj) and 0 <= v < self._m
         self._adj[u].append(v)
         self._match = None
 
     def solve(self):
+        """計算量: 時間 O((V + E) sqrt(V + 1))、追加空間 O(V)。計算済みなら時間・追加空間 O(1)。V = n + m。"""
         if self._match is None:
             self._match = bipartite_matching(self._adj, self._m)
             self._size = sum(v >= 0 for v in self._match)
         return self._size
 
     def pairs(self):
+        """計算量: solve の時間 + O(n)、出力空間 O(n)。"""
         self.solve()
         return [(u, v) for u, v in enumerate(self._match) if v >= 0]
 
@@ -31,8 +37,9 @@ class BipartiteMatching:
 def bipartite_matching(adj, m):
     """非再帰 Hopcroft–Karp。左頂点ごとの相手（未対応は -1）を返す。
 
-    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/bipartite_matching.py
-    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/bipartite_matching.md
+    計算量: 時間 O((V + E) sqrt(V + 1))、追加空間 O(V)。V = len(adj) + m、E は辺数。
+
+    Source: https://github.com/daikusutora3/atcoder
     """
     assert m >= 0
     n = len(adj)
