@@ -1,5 +1,8 @@
 def comb_small_k(n, k, mod):
-    """素数 mod で、min(k, n-k) 回の積から nCk を求める。"""
+    """素数 mod で、min(k, n-k) 回の積から nCk を求める。
+
+    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/mod_comb.md
+    """
     if mod <= 1:
         raise ValueError("mod must be greater than 1")
     if n < 0 or k < 0 or k > n:
@@ -19,7 +22,10 @@ def comb_small_k(n, k, mod):
 
 
 def pascal_row(n, mod):
-    """Pascal の漸化式で [nC0, nC1, ..., nCn] mod mod を返す。"""
+    """Pascal の漸化式で [nC0, nC1, ..., nCn] mod mod を返す。
+
+    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/mod_comb.md
+    """
     if n < 0:
         raise ValueError("n must be non-negative")
     if mod <= 0:
@@ -36,9 +42,13 @@ def pascal_row(n, mod):
 
 
 class ModComb:
-    """素数 mod における階乗・順列・二項係数を前計算する。"""
+    """素数 mod における階乗・順列・二項係数を前計算する。
+
+    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/mod_comb.md
+    """
 
     def __init__(self, max_n, mod):
+        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/mod_comb.md"""
         if max_n < 0:
             raise ValueError("max_n must be non-negative")
         if mod <= 1:
@@ -62,7 +72,10 @@ class ModComb:
         self.inv_fact = inv_fact
 
     def comb(self, n, k):
-        """nCk mod mod を返す。k が範囲外なら 0。"""
+        """nCk mod mod を返す。k が範囲外なら 0。
+
+        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/mod_comb.md
+        """
         if n < 0:
             return 0
         if n > self.max_n:
@@ -74,7 +87,10 @@ class ModComb:
         )
 
     def perm(self, n, k):
-        """nPk mod mod を返す。k が範囲外なら 0。"""
+        """nPk mod mod を返す。k が範囲外なら 0。
+
+        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/mod_comb.md
+        """
         if n < 0:
             return 0
         if n > self.max_n:

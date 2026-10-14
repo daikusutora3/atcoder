@@ -1,7 +1,11 @@
 class CumulativeSum2D:
-    """2次元累積和。sum(x1, y1, x2, y2) で半開区間の和を返す。"""
+    """2次元累積和。sum(x1, y1, x2, y2) で半開区間の和を返す。
+
+    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/misc/prefix_sum_2d.md
+    """
 
     def __init__(self, a):
+        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/misc/prefix_sum_2d.md"""
         self.h = h = len(a)
         self.w = w = len(a[0]) if h else 0
         if any(len(row) != w for row in a):
@@ -15,7 +19,10 @@ class CumulativeSum2D:
                 cur[x + 1] = prev[x + 1] + total
 
     def sum(self, x1, y1, x2, y2):
-        """[y1, y2) 行 × [x1, x2) 列の和。右下の境界は含まない。"""
+        """[y1, y2) 行 × [x1, x2) 列の和。右下の境界は含まない。
+
+        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/misc/prefix_sum_2d.md
+        """
         if not (0 <= y1 <= y2 <= self.h and 0 <= x1 <= x2 <= self.w):
             raise ValueError("rectangle must satisfy 0 <= start <= end <= size")
         s = self.s
