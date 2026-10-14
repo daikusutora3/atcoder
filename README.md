@@ -8,6 +8,8 @@ AtCoder の Python 解答と、再利用する競技プログラミング用ラ�
 - `library/`: 競プロ用ライブラリと使用方法（[目次](library/README.md)）
 - `scripts/`: 環境構築・ランダムテスト用スクリプト（[使い方](scripts/README.md)）
 - `.vscode/`: ランダムテスト用のタスク・デバッグ設定
+- `.agents/skills/`: このリポジトリで使用するスキル
+- `skills-lock.json`: 外部スキルの入手元と内容のハッシュ
 
 ## セットアップ
 
@@ -32,3 +34,5 @@ AI を使った作業は、AtCoder のコンテスト開催中を避けてくだ
 ## ライセンス
 
 [MIT License](LICENSE) のもとで、利用・改変・再配布・商用利用ができます。再配布時は著作権表示とライセンス文を残してください。ソフトウェアは無保証で提供します。
+
+外部から導入した `.agents/skills/skill-creator/` は [anthropics/skills](https://github.com/anthropics/skills) に由来し、同ディレクトリの [Apache License 2.0](.agents/skills/skill-creator/LICENSE.txt) が適用されます。

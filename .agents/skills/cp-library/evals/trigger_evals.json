@@ -1,0 +1,78 @@
+[
+  {
+    "query": "有向グラフの閉路検出を今後も使い回したいので、競プロ用に library に切り出したいです。Python で `library/graph/` に追加して md と README も整えてください。",
+    "should_trigger": true
+  },
+  {
+    "query": "セグ木じゃなくて Fenwick Tree のライブラリをこのリポジトリ向けに作りたいです。既存 library を見て、なければ実装と説明 md を追加してください。",
+    "should_trigger": true
+  },
+  {
+    "query": "この DFS 木の前後順を取る処理、今後も何度も使いそうです。競プロライブラリとして整理して `library/` に入れたいです。",
+    "should_trigger": true
+  },
+  {
+    "query": "最短路のダイクストラを毎回コピペしているので、この repo の流儀でライブラリ化してほしいです。参考記事も調べて md に残してください。",
+    "should_trigger": true
+  },
+  {
+    "query": "平方分割の range add / range sum を AtCoder 用の再利用コードとしてまとめたいです。`library/` 配下に追加する前提で進めてください。",
+    "should_trigger": true
+  },
+  {
+    "query": "木の LCA を Python で実装して、今後の ABC で再利用したいです。既存 library を確認してから、必要なら新規追加してください。",
+    "should_trigger": true
+  },
+  {
+    "query": "この SCC の実装、問題コードに直書きせず競プロライブラリに寄せたいです。README と対応 md も更新してほしいです。",
+    "should_trigger": true
+  },
+  {
+    "query": "Mo's algorithm の雛形をこのリポジトリの `library/` に置きたいです。使い方の md と関連する自分の解答リンクも含めて整えてください。",
+    "should_trigger": true
+  },
+  {
+    "query": "二分探索木っぽい sorted multiset を Python で作りたいです。競プロ用途で使いやすい形に library 化できますか？",
+    "should_trigger": true
+  },
+  {
+    "query": "ABC の解答を書いてください。ライブラリ化は不要で、この問題を通すコードだけ欲しいです。",
+    "should_trigger": false
+  },
+  {
+    "query": "今ある `library/graph/directed_cycle.py` のバグを 1 箇所だけ直してほしいです。ドキュメントや README は触らなくて大丈夫です。",
+    "should_trigger": false
+  },
+  {
+    "query": "競プロの問題を解きたいです。Union-Find を使うかもしれないけど、まずは方針だけ相談したいです。",
+    "should_trigger": false
+  },
+  {
+    "query": "AtCoder の ABC456 E の自分の解答を読みやすくリファクタして。`src/abc456/e.py` だけ直せばいいです。",
+    "should_trigger": false
+  },
+  {
+    "query": "この Python コードの TLE を直してほしいです。ライブラリ化より、とにかくこの 1 問を AC にしたいです。",
+    "should_trigger": false
+  },
+  {
+    "query": "`library/graph/directed_cycle.md` の日本語だけ少し直して。実装や構成は変えなくていいです。",
+    "should_trigger": false
+  },
+  {
+    "query": "競技プログラミングで使うアルゴリズムを教えて。まだ repo の編集はしないで、候補だけ挙げてください。",
+    "should_trigger": false
+  },
+  {
+    "query": "このリポジトリに新しい `src/abc457/e.py` を追加して、その問題の解答を書いてください。`library/` は触らなくていいです。",
+    "should_trigger": false
+  },
+  {
+    "query": "Fenwick Tree の説明をして。実装追加や md 更新は不要です。",
+    "should_trigger": false
+  },
+  {
+    "query": "競プロじゃなくて普通の業務コードで使うグラフユーティリティを Python パッケージ風に設計したいです。",
+    "should_trigger": false
+  }
+]

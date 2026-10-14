@@ -23,10 +23,8 @@ dist/
 .env
 .env.*
 !.env.example
-/.agents/
 /.codex/
 /.aws/
-/skills-lock.json
 /.vscode/settings.json
 .idea/
 
