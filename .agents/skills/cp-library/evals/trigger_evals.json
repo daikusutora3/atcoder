@@ -36,6 +36,22 @@
     "should_trigger": true
   },
   {
+    "query": "非負重みの最短路を求めたいです。この repo に使える部品があれば探して、入力形式と計算量を確認して使い方を教えてください。新規実装は不要です。",
+    "should_trigger": true
+  },
+  {
+    "query": "library/misc/compress.py の返り値を整理したいです。今の利用箇所を確認して、API と対応 md の使用例を揃えてください。",
+    "should_trigger": true
+  },
+  {
+    "query": "library/graph/dijkstra.md の使い方が今の実装とずれていそうです。引数、返り値、到達できない頂点の扱いを確認して説明を整えてください。実装の変更は不要です。",
+    "should_trigger": true
+  },
+  {
+    "query": "整数の二分探索を毎回貼れるように library/misc/ に置きたい。関数化しないで、ok と ng と判定だけその場で変える形にして。md と索引もお願いします。",
+    "should_trigger": true
+  },
+  {
     "query": "ABC の解答を書いてください。ライブラリ化は不要で、この問題を通すコードだけ欲しいです。",
     "should_trigger": false
   },
