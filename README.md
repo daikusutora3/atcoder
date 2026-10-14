@@ -1,4 +1,4 @@
-# AtCoder
+# AtCoder!!
 
 AtCoder の Python 解答と、再利用する競技プログラミング用ライブラリを管理するリポジトリです。
 
