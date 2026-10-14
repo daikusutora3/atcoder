@@ -2,7 +2,8 @@ from collections import deque
 
 
 def topological_sort(graph):
-    """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/topological_sort.md"""
+    """Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/topological_sort.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/topological_sort.md"""
     n = len(graph)
     indeg = [0] * n
 

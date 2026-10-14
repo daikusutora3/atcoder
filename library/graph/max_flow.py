@@ -4,13 +4,13 @@ from collections import namedtuple
 class MFGraph:
     """非再帰 Dinic。頂点は 0-indexed、容量は非負整数。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/max_flow.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/max_flow.md
     """
 
     Edge = namedtuple("Edge", "src dst cap flow")
 
     def __init__(self, n):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md"""
         assert n >= 0
         self.n = n
         self.g = [[] for _ in range(n)]
@@ -18,7 +18,6 @@ class MFGraph:
         self.cap = []
 
     def add_edge(self, src, dst, cap):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md"""
         assert 0 <= src < self.n and 0 <= dst < self.n
         assert cap >= 0
         e = len(self.to)
@@ -29,23 +28,19 @@ class MFGraph:
         return e >> 1
 
     def edge_flow(self, i):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md"""
         assert 0 <= i < len(self.to) // 2
         return self.cap[2 * i + 1]
 
     def get_edge(self, i):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md"""
         assert 0 <= i < len(self.to) // 2
         e = 2 * i
         return self.Edge(self.to[e + 1], self.to[e],
                          self.cap[e] + self.cap[e + 1], self.cap[e + 1])
 
     def edges(self):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md"""
         return [self.get_edge(i) for i in range(len(self.to) // 2)]
 
     def flow(self, s, t, flow_limit=None):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md"""
         assert 0 <= s < self.n and 0 <= t < self.n and s != t
         n, g, to, cap = self.n, self.g, self.to, self.cap
         if flow_limit is None:
@@ -104,7 +99,6 @@ class MFGraph:
         return total
 
     def min_cut(self, s):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/max_flow.md"""
         assert 0 <= s < self.n
         seen = [False] * self.n
         seen[s] = True

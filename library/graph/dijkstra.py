@@ -2,7 +2,8 @@ from heapq import heappop, heappush
 
 
 def dijkstra(s, graph, inf=float("inf")):
-    """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/dijkstra.md"""
+    """Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/dijkstra.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/dijkstra.md"""
     dist = [inf] * len(graph)
     dist[s] = 0
     que = [(0, s)]

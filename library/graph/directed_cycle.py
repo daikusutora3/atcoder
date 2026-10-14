@@ -1,5 +1,6 @@
 def has_directed_cycle(graph, starts=None):
-    """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/directed_cycle.md"""
+    """Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.md"""
     n = len(graph)
 
     # 0: 未訪問
@@ -38,7 +39,8 @@ def has_directed_cycle(graph, starts=None):
 
 
 def find_directed_cycle(graph, starts=None):
-    """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/graph/directed_cycle.md"""
+    """Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/graph/directed_cycle.md"""
     n = len(graph)
 
     # 0: 未訪問

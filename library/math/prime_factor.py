@@ -1,7 +1,8 @@
 def sieve_primes(n):
     """n 以下の素数リストを返す。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/prime_factor.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.md
     """
     if n < 2:
         return []
@@ -20,7 +21,8 @@ def sieve_primes(n):
 def factorize_by_primes(n, primes):
     """素数リスト primes を使って n を素因数分解し、[(p, e), ...] を返す。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/prime_factor.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.md
     """
     res = []
 
@@ -43,7 +45,8 @@ def factorize_by_primes(n, primes):
 def build_spf(n):
     """0..n の最小素因数テーブルを返す。spf[x] は x の最小素因数。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/prime_factor.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.md
     """
     spf = [0] * (n + 1)
     if n >= 1:
@@ -67,7 +70,8 @@ def build_spf(n):
 def build_linear_spf(n):
     """線形篩で (spf, primes) を返す。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/prime_factor.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.md
     """
     spf = [0] * (n + 1)
     primes = []
@@ -92,7 +96,8 @@ def build_linear_spf(n):
 def factorize_spf(n, spf):
     """spf テーブルを使って n を素因数分解し、[(p, e), ...] を返す。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/prime_factor.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.md
     """
     res = []
 
@@ -110,7 +115,8 @@ def factorize_spf(n, spf):
 def divisors_from_factorization(factors):
     """[(p, e), ...] から約数を昇順で返す。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/math/prime_factor.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/math/prime_factor.md
     """
     divs = [1]
 

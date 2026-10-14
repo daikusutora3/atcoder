@@ -1,11 +1,11 @@
 class IndexLinkedList:
     """0..n-1 の整数をノード ID として扱う双方向連結リスト。
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/data_structure/linked_list.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/data_structure/linked_list.md
     """
 
     def __init__(self, n, order=None):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md"""
         self.prev = [-1] * n
         self.next = [-1] * n
         self.alive = [False] * n
@@ -19,37 +19,30 @@ class IndexLinkedList:
             self.append(x)
 
     def __len__(self):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md"""
         return self.size
 
     def __iter__(self):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md"""
         x = self.head
         while x != -1:
             yield x
             x = self.next[x]
 
     def _check_id(self, x):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md"""
         if not 0 <= x < len(self.next):
             raise IndexError("node ID is out of range")
 
     def _check_active(self, x):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md"""
         self._check_id(x)
         if not self.alive[x]:
             raise ValueError("node is not in the linked list")
 
     def _check_inactive(self, x):
-        """Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md"""
         self._check_id(x)
         if self.alive[x]:
             raise ValueError("node is already in the linked list")
 
     def append(self, x):
         """リストに含まれていない x を末尾へ追加する。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         self._check_inactive(x)
 
@@ -65,8 +58,6 @@ class IndexLinkedList:
 
     def appendleft(self, x):
         """リストに含まれていない x を先頭へ追加する。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         self._check_inactive(x)
 
@@ -82,8 +73,6 @@ class IndexLinkedList:
 
     def insert_after(self, pos, x):
         """リストに含まれていない x を pos の直後へ追加する。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         self._check_active(pos)
         self._check_inactive(x)
@@ -101,8 +90,6 @@ class IndexLinkedList:
 
     def insert_before(self, pos, x):
         """リストに含まれていない x を pos の直前へ追加する。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         self._check_active(pos)
         self._check_inactive(x)
@@ -120,8 +107,6 @@ class IndexLinkedList:
 
     def remove(self, x):
         """x をリストから外す。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         self._check_active(x)
 
@@ -143,8 +128,6 @@ class IndexLinkedList:
 
     def move_to_back(self, x):
         """x を末尾へ移動する。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         self._check_active(x)
         if x != self.tail:
@@ -153,8 +136,6 @@ class IndexLinkedList:
 
     def move_to_front(self, x):
         """x を先頭へ移動する。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         self._check_active(x)
         if x != self.head:
@@ -163,7 +144,5 @@ class IndexLinkedList:
 
     def to_list(self):
         """現在の順序を list で返す。
-
-        Docs: https://github.com/daikusutora3/atcoder/blob/main/library/data_structure/linked_list.md
         """
         return list(self)

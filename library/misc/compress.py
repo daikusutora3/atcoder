@@ -5,7 +5,8 @@ def compress(values):
     vals: values に登場する値を昇順に重複除去したリスト
     idx: 元の値から圧縮後 index への辞書
 
-    Docs: https://github.com/daikusutora3/atcoder/blob/main/library/misc/compress.md
+    Source: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/misc/compress.py
+    Docs: https://github.com/daikusutora3/atcoder/blob/cdc3259e403ef68728af57ea4b6d54c34540eb35/library/misc/compress.md
     """
     vals = sorted(set(values))
     idx = {x: i for i, x in enumerate(vals)}
