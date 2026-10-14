@@ -1,7 +1,23 @@
-# library
+# 競プロライブラリ
 
-- [graph](./graph/README.md): グラフ関連ライブラリ
-- [geometry](./geometry/README.md): 図形関連ライブラリ
-- [math](./math/README.md): 数学関連ライブラリ
-- [data_structure](./data_structure/README.md): データ構造ライブラリ
-- [misc](./misc/README.md): 汎用テクニック、補助関数
+提出へコピーして使う Python の実装と、使い方・前提・計算量をまとめたメモです。
+
+[リポジトリのトップ](../README.md)
+
+## 用途から探す
+
+| カテゴリ | 主な用途 |
+| --- | --- |
+| [グラフ](./graph/README.md) | 最大流・流量復元、最大二部マッチング、有向グラフの閉路、単一始点最短距離、トポロジカルソート |
+| [図形](./geometry/README.md) | 2 次元の幾何処理 |
+| [数学](./math/README.md) | 二項係数・順列、素因数分解・約数、約数・倍数の変換、Slope Trick |
+| [データ構造](./data_structure/README.md) | 双方向連結リスト |
+| [汎用テクニック](./misc/README.md) | 二分探索・指数探索、座標圧縮、2 次元累積和 |
+
+## 使い方
+
+1. カテゴリの目次から用途に合うライブラリを選ぶ。
+2. 説明の `Summary`・`Functions` または `Snippet` で、入力前提・API・計算量を確認する。
+3. `Usage` を参考に、コードを解答へコピーして使う。スニペットは説明内のコードを使う。
+
+関数・クラスの docstring にある `Docs:` から、このリポジトリの説明へ戻れます。

@@ -1,4 +1,7 @@
-# data_structure
+# データ構造
 
-- [linked_list.py](./linked_list.py)
-  - [linked_list.md](./linked_list.md): 整数 ID を配列で管理する双方向連結リスト
+[ライブラリ目次](../README.md) / `data_structure`
+
+| 用途 | 内容 | 説明 | コード |
+| --- | --- | --- | --- |
+| 双方向連結リスト | 整数 ID の追加・削除・移動 | [linked_list.md](./linked_list.md) | [linked_list.py](./linked_list.py) |
