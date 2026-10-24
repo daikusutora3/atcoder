@@ -1,0 +1,22 @@
+{
+    "chat.disableAIFeatures": true,
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+    "window.zoomLevel": 2,
+    "editor.formatOnSave": true,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "both",
+    "python.terminal.activateEnvironment": false,
+    "python.terminal.activateEnvInCurrentTerminal": false,
+    "python.defaultInterpreterPath": "${workspaceFolder}/.cp313/bin/python",
+    "ruff.importStrategy": "useBundled",
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true
+    },
+    "[plaintext]": {
+        "editor.wordWrap": "on"
+    },
+    "editor.hover.enabled": "onKeyboardModifier",
+    "editor.parameterHints.enabled": false,
+    "editor.glyphMargin": false
+}

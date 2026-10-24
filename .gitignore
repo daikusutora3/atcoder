@@ -25,7 +25,6 @@ dist/
 !.env.example
 /.codex/
 /.aws/
-/.vscode/settings.json
 .idea/
 
 # OS and editor temporary files
