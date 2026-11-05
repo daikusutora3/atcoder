@@ -49,7 +49,7 @@ print(idx[10])  # 3
 
 - [CP-Algorithms Library - compress_coords.hpp](https://lib.cp-algorithms.com/cp-algo/util/compress_coords.hpp.html)
   - ソート後に重複をまとめ、元の値の昇順配列を返す構成を参考にした
-- [座標圧縮 - yaketake08's 実装メモ](https://tjkendev.github.io/procon-library/cpp/geometry/compress.html)
+- [座標圧縮 - yaketake08's **実装メモ**](https://tjkendev.github.io/procon-library/cpp/geometry/compress.html)
   - `O(N log N)` で値を昇順の連番へ対応させる基本方針を確認した
 
 ## Related
