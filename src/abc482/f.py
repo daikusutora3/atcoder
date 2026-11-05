@@ -1,3 +1,7 @@
+import sys
+from collections import deque
+
+
 def sieve_primes(n):
     """n 以下の素数リストを返す。
 
@@ -44,29 +48,47 @@ def factorize_by_primes(n, primes):
     return res
 
 
-N, M = map(int, input().split())
+N, M = list(map(int, input().split()))
+
+if N == 1:
+    for i in range(M):
+        print(1 if i == 1 % M else -1)
+    sys.exit()
 
 primes = sieve_primes(int(N**0.5) + 1)
 factors = factorize_by_primes(N, primes)
 INF = float("inf")
-dist = [INF for i in range(M)]
-dist[1 % M] = 1
+D = len(factors)
 
-for p, e in factors:
-    n_dist = [INF for i in range(M)]
-    for k in range(M):
-        i = k
-        cnt = 0
-        seen = {i}
-        while n_dist[i] != INF:
-            ni = (i * p) % M
-            if ni in seen:
-                break
-            seen.add(ni)
-            n_dist[ni] = min(n_dist[ni], dist[ni], max(dist[k], 1 + cnt // e))
-            cnt += 1
-            i = ni
-    dist = n_dist
 
-for d in dist:
-    print(-1 if d == INF else d)
+def id(i, r):
+    return i * M + r
+
+
+dist = [INF for i in range(D * M)]
+dist[id(0, 1 % M)] = 0
+
+queue = deque([(0, 1 % M)])
+
+while queue:
+    i, r = queue.popleft()
+    v = id(i, r)
+    p, e = factors[i]
+    for a in range(e + 1):
+        w = 1 if i == 0 else 0
+        ni, nr = (i + 1) % D, (r * pow(p, a, mod=M) % M)
+        nv = id(ni, nr)
+        if dist[nv] > dist[v] + w:
+            dist[nv] = dist[v] + w
+            if w == 0:
+                queue.appendleft((ni, nr))
+            else:
+                queue.append((ni, nr))
+
+for d in dist[:M]:
+    if d == INF:
+        print(-1)
+    elif d == 0:
+        print(1)
+    else:
+        print(d)
